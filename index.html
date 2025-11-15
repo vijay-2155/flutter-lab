@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive PDF Viewer</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background-color: #0f172a;
+    }
+  </style>
+</head>
+
+<body class="text-gray-200">
+
+  <!-- Header -->
+  <header class="p-4 md:p-6 bg-slate-800 shadow-lg">
+    <h1 class="text-xl md:text-3xl font-bold text-center">PDF Viewer</h1>
+  </header>
+
+  <!-- Buttons -->
+  <div class="flex flex-col md:flex-row justify-center items-center gap-3 md:gap-6 mt-6 px-4">
+    <button 
+      onclick="loadPDF('Flutter_Internal_Exam_Executable_Version.pdf')" 
+      class="w-full md:w-auto px-5 py-3 bg-blue-600 hover:bg-blue-500 rounded-lg font-semibold transition">
+      View Flutter Internal Exam
+    </button>
+
+    <button 
+      onclick="loadPDF('UIDF_Lab_Manual.pdf')" 
+      class="w-full md:w-auto px-5 py-3 bg-green-600 hover:bg-green-500 rounded-lg font-semibold transition">
+      View UIDF Lab Manual
+    </button>
+  </div>
+
+  <!-- PDF Viewer -->
+  <div class="w-full mt-8 flex justify-center px-3 pb-6">
+    <iframe 
+      id="pdfViewer" 
+      src="" 
+      class="w-full md:w-11/12 lg:w-10/12 h-[70vh] md:h-[85vh] border border-gray-700 rounded-lg shadow-lg bg-white transition-all duration-300">
+    </iframe>
+  </div>
+
+  <!-- JS -->
+  <script>
+    function loadPDF(file) {
+      document.getElementById("pdfViewer").src = file;
+    }
+
+    // Load first PDF by default
+    loadPDF("Flutter_Internal_Exam_Executable_Version.pdf");
+  </script>
+
+</body>
+</html>
